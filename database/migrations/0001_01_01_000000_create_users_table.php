@@ -19,7 +19,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        
+
         // Setup for password reset tokens and sessions (Standard Laravel)
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

@@ -1,16 +1,16 @@
-import { Link, useForm } from '@inertiajs/react';
-import MainLayout from '../Layouts/MainLayout';
+import { Link, useForm } from "@inertiajs/react";
+import MainLayout from "../Layouts/MainLayout";
 
 export default function Register() {
     const { data, setData, post, processing, errors } = useForm({
-        name: '',
-        email: '',
-        password: ''
+        name: "",
+        email: "",
+        password: "",
     });
 
     const submit = (e) => {
         e.preventDefault();
-        post('/register');
+        post("/register");
     };
 
     return (
@@ -18,8 +18,10 @@ export default function Register() {
             <div className="auth-wrapper">
                 <div className="auth-card">
                     <h2>Create Account</h2>
-                    
-                    {errors.email && <p style={{color: 'red'}}>{errors.email}</p>}
+
+                    {errors.email && (
+                        <p style={{ color: "red" }}>{errors.email}</p>
+                    )}
 
                     <form onSubmit={submit}>
                         <div className="form-group">
@@ -27,7 +29,9 @@ export default function Register() {
                                 type="text"
                                 placeholder="Full Name"
                                 value={data.name}
-                                onChange={(e) => setData('name', e.target.value)}
+                                onChange={(e) =>
+                                    setData("name", e.target.value)
+                                }
                                 required
                             />
                         </div>
@@ -37,7 +41,9 @@ export default function Register() {
                                 type="email"
                                 placeholder="Email Address"
                                 value={data.email}
-                                onChange={(e) => setData('email', e.target.value)}
+                                onChange={(e) =>
+                                    setData("email", e.target.value)
+                                }
                                 required
                             />
                         </div>
@@ -47,7 +53,9 @@ export default function Register() {
                                 type="password"
                                 placeholder="Password"
                                 value={data.password}
-                                onChange={(e) => setData('password', e.target.value)}
+                                onChange={(e) =>
+                                    setData("password", e.target.value)
+                                }
                                 required
                             />
                         </div>

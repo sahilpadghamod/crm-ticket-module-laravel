@@ -13,14 +13,14 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('file_path')->nullable(); // For file uploads
-            
+
             // Status with default 'pending'
             $table->enum('status', ['pending', 'inprogress', 'completed', 'onhold'])->default('pending');
-            
+
             // Foreign Keys
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->foreignId('assigned_to')->constrained('users')->onDelete('cascade');
-            
+
             // Soft Deletes (deleted_at column)
             $table->softDeletes();
             $table->timestamps();

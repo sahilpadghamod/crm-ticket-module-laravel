@@ -12,10 +12,10 @@ class UserController extends Controller
     // Change User Role (User/Author)
     public function updateRole(Request $request, User $user)
     {
-        if(Auth::user()->role !== 'admin') abort(403);
+        if (Auth::user()->role !== 'admin') abort(403);
 
         $request->validate(['role' => 'required|in:user,author']);
-        
+
         if ($user->email === 'admin@gmail.com') return back()->withErrors(['msg' => 'Cannot change Admin role']);
 
         $user->update(['role' => $request->role]);
@@ -25,7 +25,7 @@ class UserController extends Controller
     // Delete User
     public function destroy(User $user)
     {
-        if(Auth::user()->role !== 'admin') abort(403);
+        if (Auth::user()->role !== 'admin') abort(403);
 
         if ($user->email === 'admin@gmail.com') {
             return back()->withErrors(['msg' => 'Cannot delete Main Admin']);

@@ -11,12 +11,14 @@ use Inertia\Inertia;
 class AuthController extends Controller
 {
     // Show Login Page
-    public function loginView() {
+    public function loginView()
+    {
         return Inertia::render('Login');
     }
 
     // Login
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -33,12 +35,14 @@ class AuthController extends Controller
     }
 
     // Show Register Page
-    public function registerView() {
+    public function registerView()
+    {
         return Inertia::render('Register');
     }
 
     // Register Logic
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
@@ -56,7 +60,8 @@ class AuthController extends Controller
     }
 
     // Logout
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

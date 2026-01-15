@@ -20,11 +20,9 @@ class TicketController extends Controller
         // View Tickets
         if ($user->role === 'admin') {
             $tickets = Ticket::with(['author', 'assignee'])->latest()->get();
-        } 
-        elseif ($user->role === 'author') {
+        } elseif ($user->role === 'author') {
             $tickets = Ticket::with(['assignee'])->where('created_by', $user->id)->latest()->get();
-        } 
-        else {
+        } else {
             $tickets = Ticket::with(['author'])->where('assigned_to', $user->id)->latest()->get();
         }
 
