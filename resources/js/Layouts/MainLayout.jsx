@@ -110,7 +110,7 @@ export default function MainLayout({ children, user }) {
                     &copy; {new Date().getFullYear()} TicketPortal Systems.{" "}
                     <br />{" "}
                     <span style={{ fontSize: "0.8em", opacity: 0.7 }}>
-                        Secure. Fast. Reliable.
+                        Spider Tech Services.
                     </span>
                 </p>
             </footer>
